@@ -5,7 +5,7 @@ const fetchWithDelay = async (url, delay) => {
 let score = 0;
 let currentQuestionIndex = 0;
 let buttonsEnabled = true;
-fetchWithDelay('https://opentdb.com/api.php?amount=10&category=18&token=751e2e964afff08744b750ffe4c1d34341a2664ecbaf0ec25bf65c4a7aca0013&type=boolean', 2000)
+fetchWithDelay('https://opentdb.com/api.php?amount=10&category=18&type=boolean', 2000)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
