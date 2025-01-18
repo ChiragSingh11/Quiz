@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: rgb(156, 95, 240);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.head {
+  padding: 20px;
+  font-size: clamp(24px, 5vw, 50px);
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: bisque;
+}
+
+.which {
+  font-size: clamp(20px, 4vw, 35px);
+  color: bisque;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.card {
+  border: 2px solid rgb(44, 42, 102);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: bisque;
+  font-size: clamp(16px, 2vw, 25px);
+  gap: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 150px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .cards {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 10px;
+  }
+
+  .card {
+      padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+      padding: 10px;
+  }
+
+  .head {
+      padding: 10px;
+      margin-bottom: 20px;
+  }
+
+  .which {
+      margin-bottom: 20px;
+  }
+
+  .cards {
+      grid-template-columns: 1fr;
+      gap: 10px;
+  }
+}
