@@ -1,89 +1,149 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    background-color: rgb(156, 95, 240);
-    color: bisque;
-}
-main{
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #9c5ff0, #7c3aed);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  main {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.score{
-    font-size: 35px;
+    padding: 20px;
+  }
+  
+  .score {
+    font-size: clamp(24px, 5vw, 36px);
     position: absolute;
-    top: 10vh;
-}
-.question{
-    font-size: 25px;
+    top: 40px;
+    background-color: transparent;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+  }
+  
+  .question {
+    font-size: clamp(18px, 4vw, 28px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-}
-.main-question{
+    gap: 50px;
+    background-color: transparent;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .main-question {
     display: inline;
-}
-.options{
+    background-color: transparent;
+    font-weight: 600;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .options {
     display: flex;
-    gap: 10vw;
-}
-/* Button Style */
-.option-btn {
-    padding: 20px 30px;
-    font-size: 16px;
-    font-weight: bold;
+    gap: clamp(16px, 5vw, 40px);
+    background-color: transparent;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Button Style */
+  .option-btn {
+    padding: 16px 28px;
+    font-size: clamp(14px, 3vw, 18px);
+    font-weight: 600;
     color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 120px;
   }
   
   /* Hover Effect */
   .option-btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
   }
   
   /* Focus Effect */
   .option-btn:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
   /* Disabled Button */
   .option-btn:disabled {
-    background-color: #cccccc;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
   }
-.correct {
-    animation: correctPulse 0.5s ease !important;
-    background-color: #4CAF50 !important;
+  
+  .correct {
+    animation: correctPulse 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) !important;
+    background-color: rgba(76, 175, 80, 0.9) !important;
+    border-color: rgba(76, 175, 80, 0.9) !important;
     color: white !important;
-}
-
-.incorrect {
-    animation: incorrectShake 0.5s ease !important;
-    background-color: #f44336 !important;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5) !important;
+  }
+  
+  .incorrect {
+    animation: incorrectShake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) !important;
+    background-color: rgba(244, 67, 54, 0.9) !important;
+    border-color: rgba(244, 67, 54, 0.9) !important;
     color: white !important;
-}
-
-@keyframes correctPulse {
+    box-shadow: 0 0 20px rgba(244, 67, 54, 0.5) !important;
+  }
+  
+  @keyframes correctPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    40% { transform: scale(1.15); }
+    80% { transform: scale(0.95); }
     100% { transform: scale(1); }
-}
-
-@keyframes incorrectShake {
+  }
+  
+  @keyframes incorrectShake {
     0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-10px); }
-    40% { transform: translateX(10px); }
-    60% { transform: translateX(-10px); }
-    80% { transform: translateX(10px); }
-}
+    15% { transform: translateX(-12px) rotate(-1deg); }
+    30% { transform: translateX(10px) rotate(1deg); }
+    45% { transform: translateX(-8px) rotate(-0.5deg); }
+    60% { transform: translateX(6px) rotate(0.5deg); }
+    75% { transform: translateX(-4px) rotate(-0.25deg); }
+    90% { transform: translateX(2px) rotate(0.25deg); }
+  }
+  
+  @media (max-width: 600px) {
+    .options {
+      flex-direction: column;
+      gap: 16px;
+      width: 90%;
+      max-width: 300px;
+    }
+    
+    .option-btn {
+      width: 100%;
+    }
+    
+    .question {
+      gap: 32px;
+    }
+  }
